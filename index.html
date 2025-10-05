@@ -1,1212 +1,491 @@
-<div style="margin-top: 20px;">
-                        <a href="#" style="margin-right: 15px; color: var(--light-green); text-decoration: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm-1-7.9c-.69 0-1.25-.56-1.25-1.25S7.31 6.6 8 6.6s1.25.56 1.25 1.25S8.69 9.1 8 9.1zM17 17<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canopy Geospatial Solutions | Professional GIS Services & Training</title>
-    <meta name="description" content="Professional geospatial solutions, GIS services, and training. Expert consultancy in Geographic Information Systems for government, private sector, and environmental projects.">
+    <title>Canopy Geospatial Solutions | Animated</title>
+    <meta name="description" content="Professional geospatial solutions, GIS services, and training with an animated interface.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* --- General Setup & Preloader --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-color: #2c5530;
-            --secondary-color: #4a7c59;
-            --accent-color: #7db46c;
-            --light-green: #a8d5ba;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --bg-light: #f8fdf9;
+            --primary-color: #1C2529; /* Shadowed Green */
+            --accent-color: #A1D1B1;  /* Mint Green */
+            --text-color: #EAECEE;
+            --text-muted: #a1b1b1;
+            --bg-dark: #1C2529;
+            --bg-card: #28373b;
             --white: #ffffff;
         }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigation */
-        .header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--white);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 2rem;
-            color: #dc2626;
-            background: var(--white);
-            border-radius: 8px;
-            padding: 5px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover {
-            color: var(--light-green);
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--light-green);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: var(--white);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
-            color: var(--white);
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            opacity: 0.8;
-            line-height: 1.8;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .btn {
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--white);
-            color: var(--primary-color);
-            border-color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
-            color: var(--white);
-            border-color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border-color: var(--white);
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 2rem;
-            color: var(--white);
-        }
-
-        .service-title {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .service-description {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: var(--bg-light);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            background: var(--white);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            display: block;
-        }
-
-        .stat-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        /* Training Section */
-        .training {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .course-card {
-            background: var(--bg-light);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            border-left: 5px solid var(--accent-color);
-            transition: all 0.3s ease;
-        }
-
-        .course-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .course-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .course-description {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        .course-features {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .course-feature {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .feature-icon {
-            width: 20px;
-            height: 20px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            font-size: 0.8rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--white);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-        }
-
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .contact-details {
-            space-y: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 40px;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.9);
-            color: var(--text-dark);
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: var(--white);
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.3);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            color: var(--accent-color);
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            line-height: 1.8;
-        }
-
-        .footer-section a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 30px;
-            text-align: center;
-            color: #999;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
+        html {
+            scroll-behavior: smooth;
+        }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: var(--text-color); background-color: var(--bg-dark); overflow-x: hidden; }
+        #loader { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--primary-color); z-index: 10000; transition: opacity 1.5s ease-out, visibility 1.5s ease-out; visibility: visible; opacity: 1; }
+        #matrix-canvas { display: block; width: 100%; height: 100%; }
+        .main-wrapper { opacity: 0; transition: opacity 1s ease-in; }
+        .loaded .main-wrapper { opacity: 1; }
+        .loaded #loader { opacity: 0; visibility: hidden; }
+
+        /* Page switching */
+        .page { display: none; }
+        .page.active { display: block; animation: fadeInPage 0.5s ease-in-out; }
+        @keyframes fadeInPage { from { opacity: 0; } to { opacity: 1; } }
+
+        /* --- Animations --- */
+        @keyframes landIn { 0% { opacity: 0; transform: translateY(-50px) scale(0.9); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-subtitle, .hero-description, .cta-buttons { opacity: 0; }
+        .loaded .hero-subtitle { animation: fadeInUp 1s ease 0.5s both; }
+        .loaded .hero-description { animation: fadeInUp 1s ease 0.7s both; }
+        .loaded .cta-buttons { animation: fadeInUp 1s ease 0.9s both; }
+        .animated-card { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .animated-card.visible { opacity: 1; transform: translateY(0); }
+
+        /* --- General Styling --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { background: rgba(28, 37, 41, 0.85); backdrop-filter: blur(10px); color: var(--white); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 10px; color: var(--white); }
+        .logo img { height: 45px; width: auto; }
+        .nav-menu { display: flex; list-style: none; gap: 30px; }
+        .nav-link { color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.3s ease; position: relative; cursor: pointer; }
+        .nav-link:hover { color: var(--accent-color); }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--accent-color); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- Hero Section --- */
+        .hero { background: var(--bg-dark); color: var(--white); padding-top: 70px; text-align: center; position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; }
+        .hero-content { max-width: 800px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; font-weight: bold; opacity: 0; }
+        .hero-subtitle { font-size: 1.3rem; margin-bottom: 30px; color: var(--text-muted); }
+        .hero-description { font-size: 1.1rem; margin-bottom: 40px; line-height: 1.8; color: var(--text-color); }
+        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; border: 2px solid transparent; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background: var(--accent-color); color: var(--primary-color); border-color: var(--accent-color); }
+        .btn-primary:hover { background: transparent; color: var(--accent-color); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .btn-secondary { background: transparent; color: var(--accent-color); border-color: var(--accent-color); }
+        .btn-secondary:hover { background: var(--accent-color); color: var(--primary-color); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        
+        /* --- Sections & Registration Page --- */
+        .page-section, .registration-page { padding: 80px 0; }
+        .about, .training, .contact { background: var(--primary-color); }
+        .services, .team, .registration-page { background: var(--bg-card); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px; font-weight: bold; }
+        .section-subtitle { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+        
+        /* --- Services --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 60px; }
+        .service-card { background: var(--primary-color); padding: 40px 30px; border-radius: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; border-top: 3px solid var(--accent-color); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .service-icon { width: 80px; height: 80px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--primary-color); }
+        .service-title { font-size: 1.4rem; color: var(--white); margin-bottom: 15px; font-weight: bold; }
+        .service-description { color: var(--text-muted); line-height: 1.8; }
+
+        /* --- About Section --- */
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-text h2 { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 30px; font-weight: bold; }
+        .about-text p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        .about-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 40px; }
+        .stat-item { text-align: center; padding: 20px; background: var(--bg-card); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: var(--accent-color); display: block; }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
+
+        /* --- Team Section --- */
+        .team-group { margin-bottom: 60px; }
+        .team-group-title { font-size: 1.8rem; color: var(--accent-color); text-align: center; margin-bottom: 40px; padding-bottom: 10px; border-bottom: 2px solid var(--bg-dark); }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .team-member { background: var(--primary-color); border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+        .team-member:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .team-member::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--accent-color); }
+        .member-photo-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 25px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); flex-shrink: 0; background-color: var(--bg-card); }
+        .member-info { text-align: left; flex-grow: 1; display: flex; flex-direction: column;}
+        .member-name { font-size: 1.4rem; color: var(--white); margin-bottom: 8px; font-weight: bold; }
+        .member-title { color: var(--accent-color); font-weight: 600; margin-bottom: 15px; font-size: 1rem; }
+        .member-bio { color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; font-size: 0.95rem; flex-grow: 1;}
+        .member-expertise { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto;}
+        .expertise-tag { background: var(--bg-card); color: var(--accent-color); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+        /* --- Training & Registration --- */
+        .course-card { background: var(--bg-card); border-radius: 20px; padding: 40px; margin-bottom: 30px; border-left: 5px solid var(--accent-color); transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .course-card:hover { transform: translateX(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .course-title { font-size: 1.5rem; color: var(--white); margin-bottom: 15px; font-weight: bold; }
+        .course-description { color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; flex-grow: 1;}
+        .course-features { display: flex; gap: 30px; flex-wrap: wrap; }
+        .course-feature { display: flex; align-items: center; gap: 10px; color: var(--text-color); font-weight: 500; }
+        .feature-icon { width: 20px; height: 20px; background: var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 0.8rem; }
+        .course-cta { margin-top: 30px; text-align: left; }
+        .registration-form-container { max-width: 700px; margin: 0 auto; background: var(--primary-color); padding: 40px; border-radius: 20px; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-muted); }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 15px; border: 1px solid var(--bg-card); border-radius: 10px; background: var(--bg-card); color: var(--text-color); font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; box-shadow: 0 0 0 3px var(--accent-color); }
+        #form-message { text-align: center; margin-top: 20px; padding: 10px; border-radius: 8px; display: none; }
+        #form-message.success { background-color: #28a745; color: white; }
+        #form-message.error { background-color: #dc3545; color: white; }
+        
+        /* --- Contact Section --- */
+        .contact-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .contact-info h2 { font-size: 2.5rem; margin-bottom: 30px; font-weight: bold; }
+        .contact-info p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; opacity: 0.9; }
+        .contact-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .contact-icon { width: 50px; height: 50px; background: var(--bg-card); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .contact-form { background: var(--bg-card); padding: 40px; border-radius: 20px; }
+        
+        /* --- Footer --- */
+        .footer { background: #111; color: var(--white); padding: 60px 0 30px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-section h3 { font-size: 1.3rem; margin-bottom: 20px; color: var(--accent-color); }
+        .footer-section p, .footer-section a { color: #ccc; text-decoration: none; line-height: 1.8; }
+        .footer-section a { transition: color 0.3s; }
+        .footer-section a:hover { color: var(--accent-color); }
+        .footer-links li { list-style: none; margin-bottom: 10px; }
+        .social-links a { margin-right: 15px; font-size: 1.5rem; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 30px; text-align: center; color: #999; }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .mobile-menu {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .course-features {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
+            .nav-menu { display: none; } .hero h1 { font-size: 2.5rem; } .hero-subtitle { font-size: 1.1rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .about-content, .contact-content { grid-template-columns: 1fr; }
+            .about-stats { grid-template-columns: 1fr; }
+            .services-grid, .team-grid { grid-template-columns: 1fr; }
+            .team-member { margin-bottom: 20px; } .section-title { font-size: 2rem; }
+            .footer-content { text-align: center; } .social-links { margin-top: 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="nav-container">
-            <div class="logo">
-            <img src="logo.png" alt="Canopy Geospatial Solutions" style="height: 40px;">
-            <span>Canopy Geospatial</span>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#training" class="nav-link">Training</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <div class="mobile-menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="loader">
+        <canvas id="matrix-canvas"></canvas>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Canopy Geospatial Solutions</h1>
-            <p class="hero-subtitle">Professional GIS Services & Training Excellence</p>
-            <p class="hero-description">
-                Empowering organizations with cutting-edge geospatial technology solutions. From comprehensive GIS consulting to professional training programs, we deliver innovative spatial analysis and mapping services that drive informed decision-making across industries.
-            </p>
-            <div class="cta-buttons">
-                <a href="#services" class="btn btn-primary">Explore Services</a>
-                <a href="#training" class="btn btn-secondary">View Training</a>
+    <div class="main-wrapper">
+        <header class="header">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="Canopy Geospatial Logo">
+                </div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#services" class="nav-link smooth-scroll">Services</a></li>
+                        <li><a href="#training" class="nav-link smooth-scroll">Training</a></li>
+                        <li><a href="#contact" class="nav-link smooth-scroll">Contact</a></li>
+                        <li><a class="nav-link" data-page="register">Register</a></li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Services</h2>
-                <p class="section-subtitle">
-                    Comprehensive geospatial solutions tailored to meet your organization's unique needs. We combine technical expertise with innovative approaches to deliver exceptional results.
-                </p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">GIS Consulting</h3>
-                    <p class="service-description">
-                        Strategic GIS implementation, system design, and optimization. We help organizations leverage geospatial technology to enhance operations and decision-making processes.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M3 3v18h18V3H3zm16 16H5V5h14v14zM11 7h2v2h-2V7zm0 4h2v6h-2v-6z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Spatial Analysis</h3>
-                    <p class="service-description">
-                        Advanced spatial analysis and modeling services for urban planning, environmental assessment, and business intelligence applications.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Remote Sensing</h3>
-                    <p class="service-description">
-                        Satellite imagery analysis, aerial photography interpretation, and drone-based mapping solutions for comprehensive earth observation projects.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Web Mapping</h3>
-                    <p class="service-description">
-                        Custom web-based mapping applications and interactive dashboards that make geospatial data accessible and actionable for your team.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Mobile GIS</h3>
-                    <p class="service-description">
-                        Mobile data collection solutions and field mapping applications that streamline workflows and improve data quality in the field.
-                    </p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2zm0 4.24l-1.34 2.69-2.97.43 2.15 2.1-.51 2.96L12 13.77l2.67 1.4-.51-2.96 2.15-2.1-2.97-.43L12 6.24z"/>
-                        </svg>
-                    </div>
-                    <h3 class="service-title">Asset Management</h3>
-                    <p class="service-description">
-                        GIS-based asset management systems for infrastructure, utilities, and facility management with real-time tracking and maintenance scheduling.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Leading Geospatial Innovation</h2>
-                    <p>
-                        Canopy Geospatial Solutions is a premier provider of Geographic Information Systems (GIS) services and training programs. Our team of certified professionals brings over a decade of combined experience in spatial analysis, remote sensing, and geospatial technology implementation.
-                    </p>
-                    <p>
-                        We specialize in delivering comprehensive solutions for government agencies, private organizations, and educational institutions. Our commitment to excellence and innovation has positioned us as a trusted partner in the geospatial community.
-                    </p>
-                    <p>
-                        From beginner-level GIS training to advanced spatial analysis projects, we provide the expertise and support needed to harness the full potential of geospatial technology for your organization.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Students Trained</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Client Satisfaction</span>
+        <main>
+            <div id="home" class="page active">
+                <section class="hero">
+                    <div class="hero-content">
+                        <h1>Canopy Geospatial Solutions</h1>
+                        <p class="hero-subtitle">Professional GIS Services & Training Excellence</p>
+                        <p class="hero-description">Empowering organizations with cutting-edge geospatial technology solutions. We deliver innovative spatial analysis and mapping services that drive informed decision-making.</p>
+                        <div class="cta-buttons">
+                             <a href="#training" class="btn btn-primary smooth-scroll">Explore Training</a>
+                             <a href="#" class="btn btn-secondary nav-link" data-page="register">Register Now</a>
                         </div>
                     </div>
-                </div>
-                <div class="about-image">
-                    <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--accent-color), var(--secondary-color)); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-                        <svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Training Section -->
-    <section id="training" class="training">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Training Programs</h2>
-                <p class="section-subtitle">
-                    Professional GIS education and certification programs designed to build expertise and advance careers in geospatial technology.
-                </p>
-            </div>
-            
-            <div class="course-card">
-                <h3 class="course-title">Beginner Level 1 GIS Course</h3>
-                <p class="course-description">
-                    Perfect introduction to Geographic Information Systems for beginners. Learn fundamental concepts, basic operations, and practical applications of GIS technology in various industries.
-                </p>
-                <div class="course-features">
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
+                </section>
+                
+                <section id="services" class="page-section services">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2 class="section-title">Our Services</h2>
+                            <p class="section-subtitle">Comprehensive geospatial solutions tailored to meet your organization's unique needs. We combine technical expertise with innovative approaches to deliver exceptional results.</p>
                         </div>
-                        <span>40 Hours Duration</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
+                        <div class="services-grid">
+                            <div class="service-card animated-card"><div class="service-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><h3 class="service-title">GIS Consulting</h3><p class="service-description">Strategic GIS implementation, system design, and optimization. We help organizations leverage geospatial technology to enhance operations and decision-making processes.</p></div>
+                            <div class="service-card animated-card"><div class="service-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 10c.17 0 .33.01.5.02V8h-3V6.5c0-1.38-1.12-2.5-2.5-2.5H14V3h-4v1H8.5c-1.38 0-2.5 1.12-2.5 2.5V6H3v2.02c.17-.01.33-.02.5-.02c2.48 0 4.5 2.02 4.5 4.5s-2.02 4.5-4.5 4.5c-.17 0-.33-.01-.5-.02V18h3v1.5c0 1.38 1.12 2.5 2.5 2.5H12v1h4v-1h1.5c1.38 0 2.5-1.12 2.5-2.5V18h3v-2.02c-.17.01-.33.02-.5.02c-2.48 0-4.5-2.02-4.5-4.5s2.02-4.5 4.5-4.5z"/></svg></div><h3 class="service-title">Spatial Analysis</h3><p class="service-description">Advanced spatial analysis and modeling services for urban planning, environmental assessment, and business intelligence applications.</p></div>
+                            <div class="service-card animated-card"><div class="service-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-3 10H9v-2h8v2zm-4-4H9V8h4v2zm4-2h-2V6h2v2z"/></svg></div><h3 class="service-title">Remote Sensing</h3><p class="service-description">Satellite imagery analysis, aerial photography interpretation, and drone-based mapping solutions for comprehensive earth observation projects.</p></div>
+                            <div class="service-card animated-card"><div class="service-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><h3 class="service-title">Web Mapping</h3><p class="service-description">Custom web-based mapping applications and interactive dashboards that make geospatial data accessible and actionable for your team.</p></div>
+                            <div class="service-card animated-card"><div class="service-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg></div><h3 class="service-title">Mobile GIS</h3><p class="service-description">Mobile data collection solutions and field mapping applications that streamline workflows and improve data quality in the field.</p></div>
+                            <div class="service-card animated-card"><div class="service-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2zm0 4.24l-1.34 2.69-2.97.43 2.15 2.1-.51 2.96L12 13.77l2.67 1.4-.51-2.96 2.15-2.1-2.97-.43L12 6.24z"/></svg></div><h3 class="service-title">Asset Management</h3><p class="service-description">GIS-based asset management systems for infrastructure, utilities, and facility management with real-time tracking and maintenance scheduling.</p></div>
                         </div>
-                        <span>Hands-on Training</span>
                     </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Certificate Included</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Software Provided</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <h3 class="course-title">Advanced Spatial Analysis</h3>
-                <p class="course-description">
-                    Advanced course covering sophisticated spatial analysis techniques, geostatistics, and modeling approaches for professional GIS practitioners.
-                </p>
-                <div class="course-features">
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>60 Hours Duration</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Real Projects</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Professional Certificate</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Expert Instructors</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="course-card">
-                <h3 class="course-title">Remote Sensing & Imagery Analysis</h3>
-                <p class="course-description">
-                    Comprehensive training in satellite imagery processing, aerial photography analysis, and remote sensing applications for environmental and urban studies.
-                </p>
-                <div class="course-features">
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>45 Hours Duration</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Satellite Data Access</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Lab Sessions</span>
-                    </div>
-                    <div class="course-feature">
-                        <div class="feature-icon">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <span>Research Projects</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h2>Get In Touch</h2>
-                    <p>
-                        Ready to transform your organization with geospatial solutions? Contact our team of experts to discuss your project requirements and discover how we can help you achieve your goals.
-                    </p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                                </svg>
+                </section>
+                
+                <section id="about" class="page-section about">
+                    <div class="container">
+                         <div class="about-content">
+                            <div class="about-text">
+                                <h2>Leading Geospatial Innovation</h2>
+                                <p>Canopy Geospatial Solutions is a premier provider of Geographic Information Systems (GIS) services and training programs. Our team of certified professionals brings over a decade of combined experience in spatial analysis, remote sensing, and geospatial technology implementation.</p>
+                                <p>We specialize in delivering comprehensive solutions for government agencies, private organizations, and educational institutions. Our commitment to excellence and innovation has positioned us as a trusted partner in the geospatial community.</p>
+                                <div class="about-stats">
+                                    <div class="stat-item"><span class="stat-number">500+</span><span class="stat-label">Students Trained</span></div>
+                                    <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Projects Completed</span></div>
+                                    <div class="stat-item"><span class="stat-number">10+</span><span class="stat-label">Years Experience</span></div>
+                                    <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Client Satisfaction</span></div>
+                                </div>
                             </div>
-                            <div>
-                                <strong>Email</strong><br>
-                                info@canopygeospatial.com
+                            <div class="about-image"><div style="width: 100%; height: 400px; background: var(--bg-card); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: var(--accent-color); font-size: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.15);"><svg width="120" height="120" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="team" class="page-section team">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2 class="section-title">Our Expert Team</h2>
+                        </div>
+                        <div class="team-group">
+                            <div class="team-grid" style="grid-template-columns: 1fr;">
+                                <div class="team-member animated-card"><img src="images/profile/sethu-mr.png" alt="Photo of Sethu M R" class="member-photo-img"><div class="member-info"><h3 class="member-name">Mr. Sethu M R</h3><p class="member-title">Founder & Managing Director (Remote Sensing & GIS)</p><p class="member-bio">Sethu Madhav submitted his Ph.D. thesis in Remote Sensing from KUFOS and has extensive experience in UAV imaging, satellite image processing, and Flood inundation modeling. He is a resource person at the Centre for Tropical Biodiversity Conservation (CTBC).</p><div class="member-expertise"><span class="expertise-tag">Remote Sensing</span><span class="expertise-tag">UAV Imaging</span><span class="expertise-tag">Marine & Wildlife</span></div></div></div>
                             </div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>Phone</strong><br>
-                                +1 (555) 123-4567
-                            </div>
+                        <div class="team-group"><h3 class="team-group-title">Co-Founding Team</h3><div class="team-grid"><div class="team-member animated-card"><img src="images/profile/alan-tx.png" alt="Photo of Alan T X" class="member-photo-img"><div class="member-info"><h3 class="member-name">Mr. Alan T X</h3><p class="member-title">Co-Founder</p></div></div><div class="team-member animated-card"><img src="images/profile/anandakrishnan-s.png" alt="Photo of Anandakrishnan S" class="member-photo-img"><div class="member-info"><h3 class="member-name">Mr. Anandakrishnan S</h3><p class="member-title">Co-Founder</p></div></div><div class="team-member animated-card"><img src="images/profile/binisha-b.png" alt="Photo of Binisha B" class="member-photo-img"><div class="member-info"><h3 class="member-name">Mrs. Binisha B</h3><p class="member-title">Co-Founder</p></div></div></div></div>
+                        <div class="team-group"><h3 class="team-group-title">Scientific Specialists</h3><div class="team-grid"><div class="team-member animated-card"><img src="images/profile/harif-parengal.png" alt="Photo of Harif Parengal" class="member-photo-img"><div class="member-info"><h3 class="member-name">Mr. Harif Parengal</h3><p class="member-title">Head Ecology (Senior Scientist)</p><p class="member-bio">Leads our Forest Ecology & Survey division, bringing senior-level expertise to ecological projects.</p><div class="member-expertise"><span class="expertise-tag">Forest Ecology</span><span class="expertise-tag">Field Survey</span></div></div></div><div class="team-member animated-card"><img src="images/profile/sandeep-prabhakaran.png" alt="Photo of Sandeep Prabhakaran" class="member-photo-img"><div class="member-info"><h3 class="member-name">Mr. Sandeep Prabhakaran</h3><p class="member-title">Ecology (Senior Scientist)</p><p class="member-bio">A key member of the ecology team, contributing extensive knowledge as a senior scientist.</p><div class="member-expertise"><span class="expertise-tag">Ecology</span><span class="expertise-tag">Conservation</span></div></div></div><div class="team-member animated-card"><img src="images/profile/anoop-v.png" alt="Photo of Dr. Anoop V" class="member-photo-img"><div class="member-info"><h3 class="member-name">Dr. Anoop V</h3><p class="member-title">EIA Senior Scientist</p><p class="member-bio">Specializes in Environmental Impact Assessments, providing critical analysis and scientific oversight.</p><div class="member-expertise"><span class="expertise-tag">EIA</span><span class="expertise-tag">Environmental Science</span></div></div></div><div class="team-member animated-card"><img src="images/profile/nayana-pm.png" alt="Photo of Nayana P M" class="member-photo-img"><div class="member-info"><h3 class="member-name">Mrs. Nayana P M</h3><p class="member-title">Chief Scientific Officer (CSO)</p><p class="member-bio">Oversees the scientific direction of the Chemistry of Ecology division with precision and expertise.</p><div class="member-expertise"><span class="expertise-tag">Chemistry</span><span class="expertise-tag">Ecology</span></div></div></div></div></div>
+                    </div>
+                </section>
+                
+                <section id="training" class="page-section training">
+                     <div class="container">
+                        <div class="section-header">
+                            <h2 class="section-title">Training Programs</h2>
+                            <p class="section-subtitle">Professional GIS education and certification programs designed to build expertise and advance careers in geospatial technology.</p>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                                </svg>
+                        <div class="course-card animated-card"><h3 class="course-title">Beginner Level 1 GIS Course</h3><p class="course-description">Perfect introduction to Geographic Information Systems for beginners. Learn fundamental concepts, basic operations, and practical applications of GIS technology in various industries.</p><div class="course-features"><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>40 Hours Duration</span></div><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>Hands-on Training</span></div><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>Certificate Included</span></div></div><div class="course-cta"><a href="#" class="btn btn-secondary nav-link" data-page="register">Register for this Course</a></div></div>
+                        <div class="course-card animated-card"><h3 class="course-title">Advanced Spatial Analysis</h3><p class="course-description">Advanced course covering sophisticated spatial analysis techniques, geostatistics, and modeling approaches for professional GIS practitioners.</p><div class="course-features"><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>60 Hours Duration</span></div><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>Real Projects</span></div><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>Professional Certificate</span></div></div><div class="course-cta"><a href="#" class="btn btn-secondary nav-link" data-page="register">Register for this Course</a></div></div>
+                        <div class="course-card animated-card"><h3 class="course-title">Remote Sensing & Imagery Analysis</h3><p class="course-description">Comprehensive training in satellite imagery processing, aerial photography analysis, and remote sensing applications for environmental and urban studies.</p><div class="course-features"><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>45 Hours Duration</span></div><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>Satellite Data Access</span></div><div class="course-feature"><div class="feature-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div><span>Lab Sessions</span></div></div><div class="course-cta"><a href="#" class="btn btn-secondary nav-link" data-page="register">Register for this Course</a></div></div>
+                    </div>
+                </section>
+
+                <section id="contact" class="page-section contact">
+                    <div class="container">
+                        <div class="section-header"><h2 class="section-title">Get In Touch</h2></div>
+                        <div class="contact-content">
+                            <div class="contact-info">
+                                <p>Ready to transform your organization with geospatial solutions? Contact our team to discuss your project requirements and discover how we can help you achieve your goals.</p>
+                                <div class="contact-details">
+                                    <div class="contact-item"><div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div><strong>Email</strong><br>info@canopygeospatial.com</div></div>
+                                    <div class="contact-item"><div class="contact-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div><strong>Phone</strong><br>+1 (555) 123-4567</div></div>
+                                </div>
                             </div>
-                            <div>
-                                <strong>Location</strong><br>
-                                Professional Services Available Worldwide
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                                    <path d="m12.5 7-1 0v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <strong>Hours</strong><br>
-                                Mon - Fri: 9:00 AM - 6:00 PM
+                            <div class="contact-form">
+                                <form id="contactForm">
+                                    <div class="form-group"><label for="contact-name">Full Name</label><input type="text" id="contact-name" name="name" required></div>
+                                    <div class="form-group"><label for="contact-email">Email Address</label><input type="email" id="contact-email" name="email" required></div>
+                                    <div class="form-group"><label for="contact-message">Project Details</label><textarea id="contact-message" name="message" placeholder="Tell us about your project..." required></textarea></div>
+                                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Company/Organization</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Interest</label>
-                            <select id="service" name="service" style="width: 100%; padding: 15px; border: none; border-radius: 10px; background: rgba(255,255,255,0.9); color: var(--text-dark); font-size: 1rem;">
-                                <option value="">Select a service...</option>
-                                <option value="gis-consulting">GIS Consulting</option>
-                                <option value="spatial-analysis">Spatial Analysis</option>
-                                <option value="remote-sensing">Remote Sensing</option>
-                                <option value="web-mapping">Web Mapping</option>
-                                <option value="mobile-gis">Mobile GIS</option>
-                                <option value="training">Training Programs</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" placeholder="Tell us about your project requirements, timeline, and any specific needs..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Canopy Geospatial Solutions</h3>
-                    <p>
-                        Professional GIS services and training excellence. Empowering organizations with cutting-edge geospatial technology solutions worldwide.
-                    </p>
-                    <div style="margin-top: 20px;">
-                        <a href="mailto:info@canopygeospatial.com" style="margin-right: 15px; color: var(--light-green); text-decoration: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                            </svg>
-                        </a>
-                        <a href="#" style="margin-right: 15px; color: var(--light-green); text-decoration: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
-                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                            </svg>
-                        </a>
-                        <a href="#" style="margin-right: 15px; color: var(--light-green); text-decoration: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
-                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
-                            </svg>
-                        </a>
-                        <a href="#" style="color: var(--light-green); text-decoration: none;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
+            </div>
+
+            <div id="register" class="page">
+                <section class="registration-page">
+                    <div class="container">
+                        <div class="section-header">
+                            <h2 class="section-title">Training Registration Form</h2>
+                            <p class="section-subtitle">Fill out the form below to enroll in one of our programs. We'll contact you shortly with payment details and next steps.</p>
+                        </div>
+                        <div class="registration-form-container">
+                            <form id="registrationForm" action="#" method="POST">
+                                <div class="form-group"><label for="name">Full Name</label><input type="text" id="name" name="name" required></div>
+                                <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+                                <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" required></div>
+                                <div class="form-group"><label for="course">Select a Course</label>
+                                    <select id="course" name="course" required>
+                                        <option value="">--Please choose an option--</option>
+                                        <option value="Beginner GIS">Beginner Level 1 GIS Course</option>
+                                        <option value="Advanced Analysis">Advanced Spatial Analysis</option>
+                                        <option value="Remote Sensing">Remote Sensing & Imagery Analysis</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">Register Now</button>
+                            </form>
+                            <div id="form-message"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>Canopy Geospatial</h3>
+                        <p>Empowering organizations with cutting-edge geospatial technology solutions worldwide.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a class="nav-link" data-page="home">Home</a></li>
+                            <li><a href="#services" class="nav-link smooth-scroll">Services</a></li>
+                            <li><a href="#training" class="nav-link smooth-scroll">Training</a></li>
+                            <li><a class="nav-link" data-page="register">Register</a></li>
+                        </ul>
+                    </div>
+                     <div class="footer-section">
+                        <h3>Company</h3>
+                        <ul class="footer-links">
+                            <li><a href="#about" class="smooth-scroll">About Us</a></li>
+                            <li><a href="#team" class="smooth-scroll">Our Team</a></li>
+                            <li><a href="#contact" class="smooth-scroll">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p>Email: info@canopygeospatial.com</p>
+                        <p>Phone: +1 (555) 123-4567</p>
                     </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <p><a href="#services">GIS Consulting</a></p>
-                    <p><a href="#services">Spatial Analysis</a></p>
-                    <p><a href="#services">Remote Sensing</a></p>
-                    <p><a href="#services">Web Mapping</a></p>
-                    <p><a href="#services">Mobile GIS</a></p>
-                    <p><a href="#services">Asset Management</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Training</h3>
-                    <p><a href="#training">Beginner GIS Course</a></p>
-                    <p><a href="#training">Advanced Spatial Analysis</a></p>
-                    <p><a href="#training">Remote Sensing Training</a></p>
-                    <p><a href="#training">Custom Corporate Training</a></p>
-                    <p><a href="#training">Certification Programs</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>Resources</h3>
-                    <p><a href="#">Blog</a></p>
-                    <p><a href="#">Case Studies</a></p>
-                    <p><a href="#">White Papers</a></p>
-                    <p><a href="#">GIS Tutorials</a></p>
-                    <p><a href="#">Industry Reports</a></p>
-                    <p><a href="#">FAQ</a></p>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Canopy Geospatial Solutions. All rights reserved.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Canopy Geospatial Solutions. All rights reserved. | Professional GIS Services & Training Excellence</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('loader');
+            const canvas = document.getElementById('matrix-canvas');
+            const context = canvas.getContext('2d');
+            let animationFrameId;
+
+            function setupCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            setupCanvas();
+
+            const characters = '01';
+            const fontSize = 16;
+            const columns = Math.ceil(canvas.width / fontSize);
+            const drops = Array(columns).fill(1);
+            
+            function draw() {
+                context.fillStyle = 'rgba(28, 37, 41, 0.1)';
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                context.font = fontSize + 'px monospace';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    const y = drops[i] * fontSize;
+                    
+                    context.shadowBlur = 10;
+                    context.shadowColor = 'rgba(161, 209, 177, 0.7)';
+                    context.fillStyle = '#A1D1B1';
+                    context.fillText(text, i * fontSize, y);
+
+                    if (y > canvas.height && Math.random() > 0.99) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+                
+                context.shadowBlur = 0;
+                animationFrameId = requestAnimationFrame(draw);
+            }
+
+            draw();
+
+            setTimeout(() => {
+                cancelAnimationFrame(animationFrameId);
+                document.body.classList.add('loaded');
+                const heroTitle = document.querySelector('.hero h1');
+                if(heroTitle) heroTitle.style.animation = 'landIn 1.5s ease-out forwards';
+            }, 3000); // Shortened loader time
+
+            window.addEventListener('resize', setupCanvas);
+
+            // --- Page Navigation Logic ---
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const smoothScrollLinks = document.querySelectorAll('.smooth-scroll');
+
+            function showPage(pageId) {
+                if (pageId === 'home' && !document.getElementById(pageId).classList.contains('active')) {
+                     // If switching back to home, just show it
+                } else if (pageId !== 'home') {
+                    document.getElementById('home').classList.remove('active');
+                }
+                
+                pages.forEach(page => page.classList.remove('active'));
+                const newPage = document.getElementById(pageId);
+                if (newPage) newPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+
+            navLinks.forEach(link => {
+                const pageId = link.getAttribute('data-page');
+                if (pageId) {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showPage(pageId);
                     });
                 }
             });
-        });
 
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navMenu = document.querySelector('.nav-menu');
-
-        mobileMenu.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '70px';
-            navMenu.style.left = '0';
-            navMenu.style.right = '0';
-            navMenu.style.background = 'var(--primary-color)';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.padding = '20px';
-            navMenu.style.gap = '20px';
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'linear-gradient(135deg, rgba(44, 85, 48, 0.95) 0%, rgba(74, 124, 89, 0.95) 100%)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const company = formData.get('company');
-            const service = formData.get('service');
-            const message = formData.get('message');
-            
-            // Simple validation
-            if (!name || !email || !message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Show success message
-            alert('Thank you for your message! We will get back to you within 24 hours.');
-            this.reset();
-        });
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards and course cards
-        document.querySelectorAll('.service-card, .course-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Counter animation for stats
-        function animateCounter(element, target, duration = 2000) {
-            let start = 0;
-            const increment = target / (duration / 16);
-            
-            const timer = setInterval(() => {
-                start += increment;
-                if (start >= target) {
-                    start = target;
-                    clearInterval(timer);
-                }
-                
-                if (target >= 100) {
-                    element.textContent = Math.floor(start) + '+';
-                } else {
-                    element.textContent = Math.floor(start) + '%';
-                }
-            }, 16);
-        }
-
-        // Animate counters when they come into view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    const text = statNumber.textContent;
-                    const number = parseInt(text.replace(/[^0-9]/g, ''));
+            smoothScrollLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    showPage('home'); // Ensure home page is active
                     
-                    if (!statNumber.animated) {
-                        animateCounter(statNumber, number);
-                        statNumber.animated = true;
-                    }
-                }
+                    setTimeout(() => {
+                         const targetId = this.getAttribute('href');
+                         const targetElement = document.querySelector(targetId);
+                         if(targetElement) {
+                            const headerHeight = document.querySelector('.header').offsetHeight;
+                            const targetPosition = targetElement.offsetTop - headerHeight;
+                            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                         }
+                    }, 100); // Small delay to allow page to render
+                });
             });
-        }, { threshold: 0.5 });
 
-        document.querySelectorAll('.stat-item').forEach(stat => {
-            statsObserver.observe(stat);
-        });
+            // --- Form Submission Logic (Dummy) ---
+            function handleFormSubmission(formId, messageId) {
+                 const form = document.getElementById(formId);
+                 const messageDiv = document.getElementById(messageId);
+                 if (!form) return;
 
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
+                 form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // This is a dummy success message for demonstration
+                    messageDiv.style.display = 'block';
+                    messageDiv.textContent = 'Thank you! Your submission was successful.';
+                    messageDiv.className = 'success';
+                    form.reset();
+                    
+                    setTimeout(() => {
+                        messageDiv.style.display = 'none';
+                    }, 5000);
+                });
+            }
             
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
+            handleFormSubmission('registrationForm', 'form-message');
+            // The contact form is a dummy and doesn't have a message div, so we'll skip it.
+            document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message!');
+                e.target.reset();
+            });
+
+
+            // --- Animate elements on scroll ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animated-card').forEach(card => {
+                observer.observe(card);
+            });
         });
     </script>
 </body>
